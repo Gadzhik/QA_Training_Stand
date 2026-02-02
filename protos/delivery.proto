@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package delivery;
+
+service DeliveryService {
+  rpc CalculatePrice (DeliveryRequest) returns (DeliveryResponse);
+}
+
+message DeliveryRequest {
+  string user_id = 1;
+  int32 distance_km = 2;
+  bool is_express = 3;
+}
+
+message DeliveryResponse {
+  float price = 1;
+  string estimated_time = 2;
+}
